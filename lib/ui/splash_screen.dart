@@ -35,13 +35,16 @@ class _SplashScreenState extends State<SplashScreen> {
           fit: BoxFit.cover,
         ),
       ),
+      child: Center(
+        child: Image(image: AssetImage(AppImages.splashBike))
+      ),
     );
   }
 
   Future<void> timer() async {
-    await Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.pushNamedAndRemoveUntil(
-          context, Routes.login, (route) => false);
+          context, Routes.home, (route) => false);
     });
   }
 }

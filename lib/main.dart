@@ -1,7 +1,7 @@
 import 'package:bike_life/base/routes.dart';
-import 'package:bike_life/ui/home.dart';
 import 'package:bike_life/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,16 +12,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: Theme.of(context).copyWith(
+        appBarTheme: Theme.of(context)
+            .appBarTheme
+            .copyWith(brightness: Brightness.light),
+      ),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
 
-    onGenerateRoute: Routes.onGenerateRoute,
-      // routes: {
-      //   // When navigating to the "/" route, build the FirstScreen widget.
-      //   '/splash': (context) => SplashScreen(),
-      //   // When navigating to the "/second" route, build the SecondScreen widget.
-      //   '/home': (context) => HomePage(),
-      // },
+      onGenerateRoute: Routes.onGenerateRoute,
     );
   }
 }
