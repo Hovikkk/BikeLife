@@ -1,5 +1,4 @@
 import 'package:bike_life/base/routes.dart';
-import 'package:bike_life/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -18,7 +17,6 @@ class MyApp extends StatelessWidget {
             .copyWith(brightness: Brightness.light),
       ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
 
       onGenerateRoute: Routes.onGenerateRoute,
     );

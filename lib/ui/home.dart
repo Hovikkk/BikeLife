@@ -85,7 +85,8 @@ class _HomePageState extends State<HomePage> {
                     'Lorem Ipsum',
                     style: TextStyle(
                         color: Color(0xffAED400),
-                        fontSize: DynamicSize.size(screenWidth: width, size: 18),
+                        fontSize:
+                            DynamicSize.size(screenWidth: width, size: 18),
                         fontWeight: FontWeight.w700),
                   ),
                   Image(
@@ -104,7 +105,9 @@ class _HomePageState extends State<HomePage> {
                   width: width * 0.75,
                   child: Text(
                     'Lorem Ipsum-ը տպագրության և տպագրական արդյունաբերության համար նախատեսված մոդելային տեքստ է: Սկսած 1500-ականներից` Lorem Ipsum-ը հանդիսացել է տպագրական',
-                    style: TextStyle(fontSize: DynamicSize.size(screenWidth: width, size: 14)),
+                    style: TextStyle(
+                        fontSize:
+                            DynamicSize.size(screenWidth: width, size: 14)),
                   ),
                 ),
               )
@@ -132,8 +135,10 @@ class _HomePageState extends State<HomePage> {
               width: DynamicSize.size(screenWidth: width, size: 20),
               height: DynamicSize.size(screenWidth: width, size: 20),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+            CupertinoButton(
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.login);
+              },
               child: Icon(
                 Icons.more_vert,
                 color: Color(0xff606060),
