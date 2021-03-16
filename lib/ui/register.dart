@@ -34,9 +34,9 @@ class _RegisterPageState extends State<RegisterPage> {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: SingleChildScrollView(
-              child: Container(
+        child: Container(
             width: width,
-            height: height,
+            height: height-deviceTopPadding,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(AppImages.splash_screen),
@@ -139,8 +139,17 @@ class _RegisterPageState extends State<RegisterPage> {
                               onPressed: () {
                                 if (firstName.text != "" &&
                                     surName.text != "" &&
-                                    email.text != "" && password.text != "") {
-                                  Navigator.pushNamed(context, Routes.services);
+                                    email.text != "" &&
+                                    password.text != "") {
+                                  FocusScope.of(context)
+                                      .requestFocus(FocusNode());
+                                  Navigator.pushNamed(context, Routes.services)
+                                      .then((value) {
+                                    firstName.text = "";
+                                    surName.text = "";
+                                    email.text = "";
+                                    password.text = "";
+                                  });
                                 }
                               },
                               child: Container(

@@ -17,12 +17,13 @@ class _HomePageState extends State<HomePage> {
       child: SafeArea(
         bottom: false,
         child: Scaffold(
-            appBar: PreferredSize(
-              preferredSize: Size.fromHeight(
-                  DynamicSize.size(screenWidth: width, size: 50)),
-              child: appBar(),
-            ),
-            body: body()),
+          appBar: PreferredSize(
+            preferredSize:
+                Size.fromHeight(DynamicSize.size(screenWidth: width, size: 50)),
+            child: appBar(),
+          ),
+          body: body(),
+        ),
       ),
     );
   }
@@ -136,6 +137,7 @@ class _HomePageState extends State<HomePage> {
               height: DynamicSize.size(screenWidth: width, size: 20),
             ),
             CupertinoButton(
+              padding: EdgeInsets.zero,
               onPressed: () {
                 Navigator.pushNamed(context, Routes.login);
               },

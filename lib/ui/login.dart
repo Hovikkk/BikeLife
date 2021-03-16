@@ -10,6 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -25,7 +26,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget body() {
     return SingleChildScrollView(
-          child: Container(
+      child: Container(
         width: width,
         height: height,
         color: Color(0xffAED400),
@@ -35,13 +36,15 @@ class _LoginPageState extends State<LoginPage> {
               Expanded(
                 flex: 20,
                 child: Center(
-                    child: Container(
-                        alignment: Alignment.bottomCenter,
-                        width: DynamicSize.size(screenWidth: width, size: 150),
-                        child: Image(
-                          image: AssetImage(AppImages.bikeLifeLogo),
-                          color: Colors.white,
-                        ))),
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    width: DynamicSize.size(screenWidth: width, size: 150),
+                    child: Image(
+                      image: AssetImage(AppImages.bikeLifeLogo),
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
               Expanded(
                 flex: 30,
@@ -63,6 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.white,
                       ),
                       child: TextFormField(
+                        controller: password,
                         textAlign: TextAlign.center,
                         obscureText: true,
                         enableSuggestions: false,
@@ -97,7 +101,12 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (password.text != "") {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                          Navigator.pushNamed(context, Routes.services).then((value) => password.text = "");
+                        }
+                      },
                     ),
                     CupertinoButton(
                       padding: EdgeInsets.symmetric(
@@ -140,6 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       onPressed: () {
+                         FocusScope.of(context).requestFocus(FocusNode());
                         Navigator.pushNamed(context, Routes.register);
                       },
                     ),
