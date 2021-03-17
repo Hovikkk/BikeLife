@@ -58,7 +58,6 @@ class _PaymentPageState extends State<PaymentPage> {
   Widget appBar() {
     return Padding(
       padding: EdgeInsets.only(
-        top: DynamicSize.size(screenWidth: width, size: 10),
         bottom: DynamicSize.size(screenWidth: width, size: 70),
       ),
       child: Container(
@@ -122,7 +121,6 @@ class _PaymentPageState extends State<PaymentPage> {
           cardNumber(),
           cardUserName(),
           cardDateDay(),
-          // cardDateYear(),
           cardCode(),
           price(),
           payment(),
