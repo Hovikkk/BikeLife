@@ -23,4 +23,7 @@ class AppImages {
 
 
   static const String inecoBank = 'assets/payment/inecoBank.png';
+  static const String visa = 'assets/payment/visa.png';
+  static const String mastercard = 'assets/payment/mastercard.png';
+  static const String arca = 'assets/payment/arca.png';
 }
