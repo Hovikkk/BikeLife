@@ -1,6 +1,7 @@
 import 'package:bike_life/base/dynamic_size.dart';
 import 'package:bike_life/base/images.dart';
 import 'package:bike_life/base/routes.dart';
+import 'package:bike_life/ui/register/register_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
       child: SingleChildScrollView(
         child: Container(
             width: width,
-            height: height-deviceTopPadding,
+            height: height - deviceTopPadding,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(AppImages.splash_screen),
@@ -57,8 +58,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         )),
                     Image(
                       image: AssetImage(AppImages.bikeLifeLogo),
-                      width: DynamicSize.size(screenWidth: width, size: 95),
-                      height: DynamicSize.size(screenWidth: width, size: 40),
+                      width: logoWidth,
+                      height: logoHeight,
                     )
                   ],
                 ),
@@ -66,18 +67,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: Container(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal:
-                              DynamicSize.size(screenWidth: width, size: 40)),
+                      padding: EdgeInsets.symmetric(horizontal: logoHeight),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             'Ձեր անձնական տվյալները',
-                            style: TextStyle(
-                                fontSize: DynamicSize.size(
-                                    screenWidth: width, size: 18)),
+                            style: textStyle,
                           ),
                           Theme(
                             data: ThemeData(
@@ -131,9 +128,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(
-                                top: DynamicSize.size(
-                                    screenWidth: width, size: 30)),
+                            padding: buttonPadding,
                             child: CupertinoButton(
                               padding: EdgeInsets.zero,
                               onPressed: () {
@@ -154,15 +149,14 @@ class _RegisterPageState extends State<RegisterPage> {
                               },
                               child: Container(
                                 width: width,
-                                height: DynamicSize.size(
-                                    screenWidth: width, size: 50),
+                                height: buttonTextSize,
                                 decoration: BoxDecoration(
                                     color: Color(0xff5CBE03),
                                     borderRadius: BorderRadius.circular(8)),
                                 child: Center(
                                     child: Text(
                                   'Ստեղծել հաշիվ',
-                                  style: TextStyle(color: Colors.white),
+                                  style: buttonStyle,
                                 )),
                               ),
                             ),

@@ -1,6 +1,7 @@
 import 'package:bike_life/base/dynamic_size.dart';
 import 'package:bike_life/base/images.dart';
 import 'package:bike_life/base/routes.dart';
+import 'package:bike_life/ui/home/home_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
         child: Scaffold(
           appBar: PreferredSize(
             preferredSize:
-                Size.fromHeight(DynamicSize.size(screenWidth: width, size: 50)),
+                Size.fromHeight(buttonPreferredSizeHeight),
             child: appBar(),
           ),
           body: body(),
@@ -42,16 +43,15 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.only(
-                bottom: DynamicSize.size(screenWidth: width, size: 50)),
+            padding: paddingBottonBottom,
             child: CupertinoButton(
-              padding: EdgeInsets.zero,
+              padding: zero,
               onPressed: () {
                 Navigator.pushNamed(context, Routes.login);
               },
               child: Container(
                 width: width * 0.6,
-                height: DynamicSize.size(screenWidth: width, size: 50),
+                height: buttonPreferredSizeHeight,
                 decoration: BoxDecoration(
                   color: Color(0xffAED400),
                   borderRadius: BorderRadius.circular(30),
@@ -59,11 +59,7 @@ class _HomePageState extends State<HomePage> {
                 child: Center(
                   child: Text(
                     'Վարձակալել հեծանիվ',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize:
-                            DynamicSize.size(screenWidth: width, size: 16),
-                        fontWeight: FontWeight.w700),
+                    style: buttonText,
                   ),
                 ),
               ),
@@ -71,11 +67,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(
-            left: DynamicSize.size(screenWidth: width, size: 15),
-            right: DynamicSize.size(screenWidth: width, size: 15),
-            top: DynamicSize.size(screenWidth: width, size: 50),
-          ),
+          padding: loremBlockPadding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -84,31 +76,25 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     'Lorem Ipsum',
-                    style: TextStyle(
-                        color: Color(0xffAED400),
-                        fontSize:
-                            DynamicSize.size(screenWidth: width, size: 18),
-                        fontWeight: FontWeight.w700),
+                    style: lorem,
                   ),
                   Image(
                     image: AssetImage(AppImages.bike),
-                    width: DynamicSize.size(screenWidth: width, size: 70),
+                    width: bikeIconWidth,
                   )
                 ],
               ),
               Divider(
-                height: DynamicSize.size(screenWidth: width, size: 4),
-                thickness: DynamicSize.size(screenWidth: width, size: 4),
+                height: dividerHeight,
+                thickness: dividerHeight,
               ),
               Padding(
-                padding: EdgeInsets.only(top: 5),
+                padding: loremTextPadding,
                 child: Container(
                   width: width * 0.75,
                   child: Text(
                     'Lorem Ipsum-ը տպագրության և տպագրական արդյունաբերության համար նախատեսված մոդելային տեքստ է: Սկսած 1500-ականներից` Lorem Ipsum-ը հանդիսացել է տպագրական',
-                    style: TextStyle(
-                        fontSize:
-                            DynamicSize.size(screenWidth: width, size: 14)),
+                    style: loremText
                   ),
                 ),
               )
@@ -137,7 +123,7 @@ class _HomePageState extends State<HomePage> {
               height: DynamicSize.size(screenWidth: width, size: 20),
             ),
             CupertinoButton(
-              padding: EdgeInsets.zero,
+              padding: zero,
               onPressed: () {
                 Navigator.pushNamed(context, Routes.login);
               },

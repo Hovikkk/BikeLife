@@ -1,6 +1,7 @@
 import 'package:bike_life/base/dynamic_size.dart';
 import 'package:bike_life/base/images.dart';
 import 'package:bike_life/base/routes.dart';
+import 'package:bike_life/ui/login/login_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Center(
                   child: Container(
                     alignment: Alignment.bottomCenter,
-                    width: DynamicSize.size(screenWidth: width, size: 150),
+                    width: bikeLifeLogoWidth,
                     child: Image(
                       image: AssetImage(AppImages.bikeLifeLogo),
                       color: Colors.white,
@@ -49,8 +50,9 @@ class _LoginPageState extends State<LoginPage> {
               Expanded(
                 flex: 30,
                 child: Container(
-                    width: DynamicSize.size(screenWidth: width, size: 100),
-                    child: Image(image: AssetImage(AppImages.person))),
+                  width: userIcon,
+                  child: Image(image: AssetImage(AppImages.person)),
+                ),
               ),
               Expanded(
                 flex: 50,
@@ -58,13 +60,9 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Container(
                       width: width * 0.7,
-                      height: DynamicSize.size(screenWidth: width, size: 45),
-                      margin: EdgeInsets.only(bottom: 10),
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: Color(0xff535A3B)),
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.white,
-                      ),
+                      height: buttonHeight,
+                      margin: marginTextField,
+                      decoration: textFieldPassword,
                       child: TextFormField(
                         controller: password,
                         textAlign: TextAlign.center,
@@ -72,94 +70,76 @@ class _LoginPageState extends State<LoginPage> {
                         enableSuggestions: false,
                         autocorrect: false,
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.fromLTRB(12, 24, 12, 8),
                           border: InputBorder.none,
                           hintText: 'Գաղտնաբառ',
-                          hintStyle: TextStyle(
-                            fontSize:
-                                DynamicSize.size(screenWidth: width, size: 16),
-                            color: Color(0xffD4D4D4),
-                          ),
+                          hintStyle: hintStyle,
                         ),
                       ),
                     ),
                     CupertinoButton(
-                      padding: EdgeInsets.zero,
+                      padding: zero,
                       child: Container(
                         width: width * 0.7,
-                        height: DynamicSize.size(screenWidth: width, size: 45),
+                        height: buttonHeight,
                         decoration: BoxDecoration(
                             border: Border.all(width: 2, color: Colors.white),
                             borderRadius: BorderRadius.circular(30)),
                         child: Center(
                           child: Text(
                             'Մուտք',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: DynamicSize.size(
-                                    screenWidth: width, size: 16)),
+                            style: buttonStyle,
                           ),
                         ),
                       ),
                       onPressed: () {
                         if (password.text != "") {
                           FocusScope.of(context).requestFocus(FocusNode());
-                          Navigator.pushNamed(context, Routes.services).then((value) => password.text = "");
+                          Navigator.pushNamed(context, Routes.services)
+                              .then((value) => password.text = "");
                         }
                       },
                     ),
                     CupertinoButton(
-                      padding: EdgeInsets.symmetric(
-                          vertical:
-                              DynamicSize.size(screenWidth: width, size: 10)),
+                      padding: cupertinoButtonPadding,
                       child: Container(
                         width: width * 0.7,
-                        height: DynamicSize.size(screenWidth: width, size: 45),
+                        height: buttonHeight,
                         decoration: BoxDecoration(
                             border: Border.all(width: 2, color: Colors.white),
                             borderRadius: BorderRadius.circular(30)),
                         child: Center(
                           child: Text(
                             'Մուտք գործել այլ օգտագործողով',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: DynamicSize.size(
-                                    screenWidth: width, size: 16)),
+                            style: buttonStyle,
                           ),
                         ),
                       ),
                       onPressed: () {},
                     ),
                     CupertinoButton(
-                      padding: EdgeInsets.zero,
+                      padding: zero,
                       child: Container(
                         width: width * 0.7,
-                        height: DynamicSize.size(screenWidth: width, size: 45),
+                        height: buttonHeight,
                         decoration: BoxDecoration(
                             border: Border.all(width: 2, color: Colors.white),
                             borderRadius: BorderRadius.circular(30)),
                         child: Center(
                           child: Text(
                             'Ստեղծել հաշիվ',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: DynamicSize.size(
-                                    screenWidth: width, size: 16)),
+                            style: buttonStyle,
                           ),
                         ),
                       ),
                       onPressed: () {
-                         FocusScope.of(context).requestFocus(FocusNode());
+                        FocusScope.of(context).requestFocus(FocusNode());
                         Navigator.pushNamed(context, Routes.register);
                       },
                     ),
                     CupertinoButton(
                       child: Text(
                         'Մոռացել եք գաղտնաբառը',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize:
-                                DynamicSize.size(screenWidth: width, size: 16)),
+                        style: forgotPass,
                       ),
                       onPressed: () {},
                     )
@@ -176,12 +156,12 @@ class _LoginPageState extends State<LoginPage> {
   Widget bottomBar() {
     return Container(
       color: Color(0xffAED400),
-      height: DynamicSize.size(screenWidth: width, size: 70),
+      height: bottomBarHeight,
       child: Row(
         children: [
           Spacer(),
           CupertinoButton(
-            padding: EdgeInsets.zero,
+            padding: zero,
             onPressed: () {
               Navigator.of(context).pop();
             },
@@ -191,14 +171,9 @@ class _LoginPageState extends State<LoginPage> {
                 Icon(
                   Icons.arrow_back_ios,
                   color: Colors.white,
-                  size: DynamicSize.size(screenWidth: width, size: 20),
+                  size: backButtonSize,
                 ),
-                Text(
-                  'Հետ',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: DynamicSize.size(screenWidth: width, size: 20)),
-                )
+                Text('Հետ', style: backStyle)
               ],
             ),
           ),
