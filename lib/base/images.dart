@@ -2,6 +2,7 @@ class AppImages {
   /// splash images
   static const String splash_screen = 'assets/splash/splashBg.png';
   static const String splashBike = 'assets/splash/bikeSplash.png';
+  static const String bikeGif = 'assets/splash/bikeLine.gif';
 
   static const String bikeLifeLogo = 'assets/icons/bikeLifeLogo.png';
   static const String personIcon = 'assets/icons/personIcon.png';

@@ -62,7 +62,7 @@ class _PaymentPageState extends State<PaymentPage> {
       ),
       child: Container(
         width: width,
-        height: DynamicSize.size(screenWidth: width, size: 50),
+        height: DynamicSize.size(screenWidth: width, size: 60),
         color: Color(0xffE9EAEC),
         child: Center(
           child: Row(

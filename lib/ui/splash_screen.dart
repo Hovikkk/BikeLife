@@ -36,7 +36,15 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       ),
       child: Center(
-        child: Image(image: AssetImage(AppImages.splashBike))
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image(image: AssetImage(AppImages.bike)),
+            Image(image: AssetImage(AppImages.bikeGif)),
+            Image(image: AssetImage(AppImages.bikeLifeLogo)),
+          ],
+        )
       ),
     );
   }
