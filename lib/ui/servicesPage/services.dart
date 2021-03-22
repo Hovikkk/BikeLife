@@ -1,6 +1,7 @@
 import 'package:bike_life/base/dynamic_size.dart';
 import 'package:bike_life/base/images.dart';
 import 'package:bike_life/base/routes.dart';
+import 'package:bike_life/ui/servicesPage/services_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -29,21 +30,22 @@ class _ServicesPageState extends State<ServicesPage> {
       elevation: 0,
       backgroundColor: Color(0xffECECEC),
       leading: CupertinoButton(
-        padding: EdgeInsets.zero,
+        padding: zero,
         onPressed: () {
           Navigator.of(context).pop();
         },
         child: Icon(
           Icons.arrow_back_rounded,
           color: Colors.black,
+          size: DynamicSize.size(screenWidth: width, size: 18),
         ),
       ),
       title: Container(
-        padding: EdgeInsets.zero,
+        padding: zero,
         alignment: Alignment.bottomLeft,
         child: Image(
           image: AssetImage(AppImages.bikeLifeLogo),
-          width: DynamicSize.size(screenWidth: width, size: 100),
+          width: logoSize,
         ),
       ),
       actions: [
@@ -51,21 +53,19 @@ class _ServicesPageState extends State<ServicesPage> {
           children: [
             Center(
               child: Padding(
-                padding: EdgeInsets.only(
-                  right: DynamicSize.size(screenWidth: width, size: 20),
-                ),
+                padding: bikeIconPadding,
                 child: Image(
                   image: AssetImage(AppImages.bike),
-                  width: DynamicSize.size(screenWidth: width, size: 52),
+                  width: bikeIconWidth,
                 ),
               ),
             ),
             Positioned(
-              top: DynamicSize.size(screenWidth: width, size: 3),
-              right: DynamicSize.size(screenWidth: width, size: 17),
+              top: redIconTopPosition,
+              right: redIconSize,
               child: Container(
-                width: DynamicSize.size(screenWidth: width, size: 17),
-                height: DynamicSize.size(screenWidth: width, size: 17),
+                width: redIconSize,
+                height: redIconSize,
                 decoration: BoxDecoration(
                   color: Color(0xffA72214),
                   borderRadius: BorderRadius.circular(50),
@@ -73,11 +73,7 @@ class _ServicesPageState extends State<ServicesPage> {
                 child: Center(
                   child: Text(
                     '1',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize:
-                            DynamicSize.size(screenWidth: width, size: 10),
-                        fontWeight: FontWeight.bold),
+                    style: redIconStyle,
                   ),
                 ),
               ),
@@ -90,7 +86,7 @@ class _ServicesPageState extends State<ServicesPage> {
 
   Widget body() {
     return Padding(
-      padding: EdgeInsets.only(top: 20),
+      padding: bodyPadding,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -105,16 +101,14 @@ class _ServicesPageState extends State<ServicesPage> {
 
   Widget servicesText() {
     return Container(
-      width: 143,
+      width: DynamicSize.size(screenWidth: width, size: 150),
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(
-                left: DynamicSize.size(screenWidth: width, size: 10)),
+            padding: servicesTextPadding,
             child: Text(
               'Ծառայություններ',
-              style: TextStyle(
-                  color: Color(0xffAED400), fontWeight: FontWeight.bold),
+              style: servicesStyle,
             ),
           ),
           Divider(
@@ -130,92 +124,75 @@ class _ServicesPageState extends State<ServicesPage> {
     return Expanded(
       flex: 60,
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: DynamicSize.size(screenWidth: width, size: 10)),
+        padding: contentButtonsPadding,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                  bottom: DynamicSize.size(screenWidth: width, size: 40)),
+              padding: contentButtonsRowPadding,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: DynamicSize.size(screenWidth: width, size: 120),
-                    height: DynamicSize.size(screenWidth: width, size: 120),
+                    width: containerButtonSize,
+                    height: containerButtonSize,
                     child: CupertinoButton(
                       onPressed: () {
                         Navigator.pushNamed(context, Routes.rent);
                       },
-                      padding: EdgeInsets.zero,
+                      padding: zero,
                       child: Column(
                         children: [
                           Image(
-                            width:
-                                DynamicSize.size(screenWidth: width, size: 100),
-                            height:
-                                DynamicSize.size(screenWidth: width, size: 100),
+                            width: logoSize,
+                            height: logoSize,
                             image: AssetImage(AppImages.services1),
                           ),
                           Text(
                             'Վարձակալություն',
-                            style: TextStyle(
-                                fontSize: DynamicSize.size(
-                                    screenWidth: width, size: 13),
-                                color: Colors.black),
+                            style: buttonsStyle,
                           )
                         ],
                       ),
                     ),
                   ),
                   Container(
-                    width: DynamicSize.size(screenWidth: width, size: 120),
-                    height: DynamicSize.size(screenWidth: width, size: 120),
+                    width: containerButtonSize,
+                    height: containerButtonSize,
                     child: CupertinoButton(
-                      padding: EdgeInsets.zero,
+                      padding: zero,
                       onPressed: () {},
                       child: Column(
                         children: [
                           Image(
-                            width:
-                                DynamicSize.size(screenWidth: width, size: 100),
-                            height:
-                                DynamicSize.size(screenWidth: width, size: 100),
+                            width: logoSize,
+                            height: logoSize,
                             image: AssetImage(AppImages.services2),
                           ),
                           Text(
                             'Ուսուցում',
-                            style: TextStyle(
-                                fontSize: DynamicSize.size(
-                                    screenWidth: width, size: 13),
-                                color: Colors.black),
+                            style: buttonsStyle,
                           )
                         ],
                       ),
                     ),
                   ),
                   Container(
-                    width: DynamicSize.size(screenWidth: width, size: 120),
-                    height: DynamicSize.size(screenWidth: width, size: 120),
+                    width: containerButtonSize,
+                    height: containerButtonSize,
                     child: CupertinoButton(
                       onPressed: () {},
-                      padding: EdgeInsets.zero,
+                      padding: zero,
                       child: Column(
                         children: [
                           Image(
-                            width:
-                                DynamicSize.size(screenWidth: width, size: 100),
-                            height:
-                                DynamicSize.size(screenWidth: width, size: 100),
+                            width: logoSize,
+                            height: logoSize,
                             image: AssetImage(AppImages.services3),
                           ),
                           Text(
                             'Արշավներ',
-                            style: TextStyle(
-                                fontSize: DynamicSize.size(
-                                    screenWidth: width, size: 13),
-                                color: Colors.black),
+                            style: buttonsStyle,
                           )
                         ],
                       ),
@@ -229,39 +206,39 @@ class _ServicesPageState extends State<ServicesPage> {
               children: [
                 CupertinoButton(
                   onPressed: () {},
-                  padding: EdgeInsets.zero,
+                  padding: zero,
                   child: Container(
-                    width: DynamicSize.size(screenWidth: width, size: 120),
-                    height: DynamicSize.size(screenWidth: width, size: 100),
+                    width: containerButtonSize,
+                    height: logoSize,
                     child: Image(
-                      width: DynamicSize.size(screenWidth: width, size: 100),
-                      height: DynamicSize.size(screenWidth: width, size: 100),
+                      width: logoSize,
+                      height: logoSize,
                       image: AssetImage(AppImages.services4),
                     ),
                   ),
                 ),
                 CupertinoButton(
                   onPressed: () {},
-                  padding: EdgeInsets.zero,
+                  padding: zero,
                   child: Container(
-                    width: DynamicSize.size(screenWidth: width, size: 120),
-                    height: DynamicSize.size(screenWidth: width, size: 100),
+                    width: containerButtonSize,
+                    height: logoSize,
                     child: Image(
-                      width: DynamicSize.size(screenWidth: width, size: 100),
-                      height: DynamicSize.size(screenWidth: width, size: 100),
+                      width: logoSize,
+                      height: logoSize,
                       image: AssetImage(AppImages.services5),
                     ),
                   ),
                 ),
                 CupertinoButton(
                   onPressed: () {},
-                  padding: EdgeInsets.zero,
+                  padding: zero,
                   child: Container(
-                    width: DynamicSize.size(screenWidth: width, size: 120),
-                    height: DynamicSize.size(screenWidth: width, size: 100),
+                    width: containerButtonSize,
+                    height: logoSize,
                     child: Image(
-                      width: DynamicSize.size(screenWidth: width, size: 100),
-                      height: DynamicSize.size(screenWidth: width, size: 100),
+                      width: logoSize,
+                      height: logoSize,
                       image: AssetImage(AppImages.services6),
                     ),
                   ),
@@ -273,58 +250,46 @@ class _ServicesPageState extends State<ServicesPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: DynamicSize.size(screenWidth: width, size: 120),
+                  width: containerButtonSize,
                   child: Center(
                     child: CupertinoButton(
                       onPressed: () {},
-                      padding: EdgeInsets.zero,
+                      padding: zero,
                       minSize: 0,
                       child: Text(
                         'Վերանորոգում',
-                        style: TextStyle(
-                            fontSize:
-                                DynamicSize.size(screenWidth: width, size: 13),
-                            color: Colors.black),
+                        style: buttonsStyle,
                       ),
                     ),
                   ),
                 ),
                 CupertinoButton(
                   onPressed: () {},
-                  padding: EdgeInsets.zero,
+                  padding: zero,
                   minSize: 0,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         'Ապահով',
-                        style: TextStyle(
-                            fontSize:
-                                DynamicSize.size(screenWidth: width, size: 13),
-                            color: Colors.black),
+                        style: buttonsStyle,
                       ),
                       Text(
                         'կայանում',
-                        style: TextStyle(
-                            fontSize:
-                                DynamicSize.size(screenWidth: width, size: 13),
-                            color: Colors.black),
+                        style: buttonsStyle,
                       )
                     ],
                   ),
                 ),
                 Container(
-                  width: DynamicSize.size(screenWidth: width, size: 120),
+                  width: containerButtonSize,
                   child: CupertinoButton(
                     onPressed: () {},
-                    padding: EdgeInsets.zero,
+                    padding: zero,
                     minSize: 0,
                     child: Text(
                       'Միջոցառումներ',
-                      style: TextStyle(
-                          fontSize:
-                              DynamicSize.size(screenWidth: width, size: 13),
-                          color: Colors.black),
+                      style: buttonsStyle,
                     ),
                   ),
                 )
@@ -338,16 +303,14 @@ class _ServicesPageState extends State<ServicesPage> {
 
   Widget driveCompetentlyText() {
     return Container(
-      width: 190,
+      width: DynamicSize.size(screenWidth: width, size: 200),
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(
-                left: DynamicSize.size(screenWidth: width, size: 10)),
+            padding: driveCompetentlyPadding,
             child: Text(
               'Ինչպես գրագետ վարել',
-              style: TextStyle(
-                  color: Color(0xffAED400), fontWeight: FontWeight.bold),
+              style: driveCompetentlyStyle,
             ),
           ),
           Divider(
@@ -363,7 +326,7 @@ class _ServicesPageState extends State<ServicesPage> {
     return Expanded(
       flex: 40,
       child: Padding(
-        padding: EdgeInsets.only(top: 20),
+        padding: bottomContentPadding,
         child: Container(
           alignment: Alignment.topCenter,
           child: Stack(
@@ -372,35 +335,25 @@ class _ServicesPageState extends State<ServicesPage> {
                 image: AssetImage(AppImages.bikeBottom),
               ),
               Positioned(
-                top: DynamicSize.size(screenWidth: width, size: 10),
-                right: DynamicSize.size(screenWidth: width, size: 7),
+                top: stepTop,
+                right: stepRight,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text('ՔԱՅԼ 1',
-                        style: TextStyle(
-                          fontSize:
-                              DynamicSize.size(screenWidth: width, size: 18),
-                          fontWeight: FontWeight.bold,
-                        )),
+                    Text(
+                      'ՔԱՅԼ 1',
+                      style: stepStyle,
+                    ),
                     Padding(
-                      padding: EdgeInsets.only(
-                          top: DynamicSize.size(screenWidth: width, size: 25)),
+                      padding: walkingHelmet,
                       child: Text(
                         'Սաղավարտով երթևեկելն',
-                        style: TextStyle(
-                            fontSize:
-                                DynamicSize.size(screenWidth: width, size: 13),
-                            fontWeight: FontWeight.w500),
+                        style: walkingHelmetStyle,
                       ),
                     ),
                     Text(
                       'ավելի ապահով է',
-                      style: TextStyle(
-                          fontSize:
-                              DynamicSize.size(screenWidth: width, size: 13),
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xffAED400)),
+                      style: isSaferStyle,
                     )
                   ],
                 ),

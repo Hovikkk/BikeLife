@@ -19,8 +19,7 @@ class _HomePageState extends State<HomePage> {
         bottom: false,
         child: Scaffold(
           appBar: PreferredSize(
-            preferredSize:
-                Size.fromHeight(buttonPreferredSizeHeight),
+            preferredSize: Size.fromHeight(buttonPreferredSizeHeight),
             child: appBar(),
           ),
           body: body(),
@@ -93,9 +92,8 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   width: width * 0.75,
                   child: Text(
-                    'Lorem Ipsum-ը տպագրության և տպագրական արդյունաբերության համար նախատեսված մոդելային տեքստ է: Սկսած 1500-ականներից` Lorem Ipsum-ը հանդիսացել է տպագրական',
-                    style: loremText
-                  ),
+                      'Lorem Ipsum-ը տպագրության և տպագրական արդյունաբերության համար նախատեսված մոդելային տեքստ է: Սկսած 1500-ականներից` Lorem Ipsum-ը հանդիսացել է տպագրական',
+                      style: loremText),
                 ),
               )
             ],
@@ -110,29 +108,40 @@ class _HomePageState extends State<HomePage> {
       elevation: 0,
       centerTitle: false,
       backgroundColor: Color(0xffECECEC),
-      title: Image(
-        image: AssetImage(AppImages.bikeLifeLogo),
-        width: 100,
+      title: Padding(
+        padding: EdgeInsets.only(
+          left: DynamicSize.size(screenWidth: width, size: 10),
+        ),
+        child: Image(
+          image: AssetImage(AppImages.bikeLifeLogo),
+          width: DynamicSize.size(screenWidth: width, size: 100),
+        ),
       ),
       actions: [
-        Row(
-          children: [
-            Image(
-              image: AssetImage(AppImages.personIcon),
-              width: DynamicSize.size(screenWidth: width, size: 20),
-              height: DynamicSize.size(screenWidth: width, size: 20),
-            ),
-            CupertinoButton(
-              padding: zero,
-              onPressed: () {
-                Navigator.pushNamed(context, Routes.login);
-              },
-              child: Icon(
-                Icons.more_vert,
-                color: Color(0xff606060),
+        Padding(
+          padding: EdgeInsets.only(
+            right: DynamicSize.size(screenWidth: width, size: 10),
+          ),
+          child: Row(
+            children: [
+              Image(
+                image: AssetImage(AppImages.personIcon),
+                width: DynamicSize.size(screenWidth: width, size: 20),
+                height: DynamicSize.size(screenWidth: width, size: 20),
               ),
-            )
-          ],
+              CupertinoButton(
+                padding: zero,
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.login);
+                },
+                child: Icon(
+                  Icons.more_vert,
+                  color: Color(0xff606060),
+                  size: DynamicSize.size(screenWidth: width, size: 20),
+                ),
+              )
+            ],
+          ),
         )
       ],
     );

@@ -1,9 +1,9 @@
 import 'package:bike_life/ui/home/home.dart';
 import 'package:bike_life/ui/login/login.dart';
-import 'package:bike_life/ui/payment.dart';
+import 'package:bike_life/ui/payment/payment.dart';
 import 'package:bike_life/ui/register/register.dart';
-import 'package:bike_life/ui/rent.dart';
-import 'package:bike_life/ui/services.dart';
+import 'package:bike_life/ui/rent/rent.dart';
+import 'package:bike_life/ui/servicesPage/services.dart';
 import 'package:bike_life/ui/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 

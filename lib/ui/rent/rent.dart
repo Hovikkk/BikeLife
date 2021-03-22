@@ -1,6 +1,7 @@
 import 'package:bike_life/base/dynamic_size.dart';
 import 'package:bike_life/base/images.dart';
 import 'package:bike_life/base/routes.dart';
+import 'package:bike_life/ui/rent/rent_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,7 @@ class _RentPageState extends State<RentPage> {
       elevation: 0,
       backgroundColor: Color(0xffECECEC),
       leading: CupertinoButton(
-        padding: EdgeInsets.zero,
+        padding: zero,
         onPressed: () {
           Navigator.of(context).pop();
         },
@@ -39,11 +40,11 @@ class _RentPageState extends State<RentPage> {
         ),
       ),
       title: Container(
-        padding: EdgeInsets.zero,
+        padding: zero,
         alignment: Alignment.bottomLeft,
         child: Image(
           image: AssetImage(AppImages.bikeLifeLogo),
-          width: DynamicSize.size(screenWidth: width, size: 100),
+          width: logoSize,
         ),
       ),
       actions: [
@@ -51,21 +52,19 @@ class _RentPageState extends State<RentPage> {
           children: [
             Center(
               child: Padding(
-                padding: EdgeInsets.only(
-                  right: DynamicSize.size(screenWidth: width, size: 20),
-                ),
+                padding: bikeIconPadding,
                 child: Image(
                   image: AssetImage(AppImages.bike),
-                  width: DynamicSize.size(screenWidth: width, size: 52),
+                  width: bikeIconWidth,
                 ),
               ),
             ),
             Positioned(
-              top: DynamicSize.size(screenWidth: width, size: 3),
-              right: DynamicSize.size(screenWidth: width, size: 17),
+              top: redIconTopPosition,
+              right: redIconSize,
               child: Container(
-                width: DynamicSize.size(screenWidth: width, size: 17),
-                height: DynamicSize.size(screenWidth: width, size: 17),
+                width: redIconSize,
+                height: redIconSize,
                 decoration: BoxDecoration(
                   color: Color(0xffA72214),
                   borderRadius: BorderRadius.circular(50),
@@ -73,11 +72,7 @@ class _RentPageState extends State<RentPage> {
                 child: Center(
                   child: Text(
                     '1',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize:
-                            DynamicSize.size(screenWidth: width, size: 10),
-                        fontWeight: FontWeight.bold),
+                    style: redIconStyle,
                   ),
                 ),
               ),
@@ -99,22 +94,19 @@ class _RentPageState extends State<RentPage> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.only(top: 20),
+        padding: bottomContentPadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: 150,
+              width: DynamicSize.size(screenWidth: width, size: 158),
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(
-                        left: DynamicSize.size(screenWidth: width, size: 10)),
+                    padding: rentTextPadding,
                     child: Text(
                       'Վարձակալություն',
-                      style: TextStyle(
-                          color: Color(0xffAED400),
-                          fontWeight: FontWeight.bold),
+                      style: rentTextStyle,
                     ),
                   ),
                   Divider(
@@ -126,15 +118,12 @@ class _RentPageState extends State<RentPage> {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: DynamicSize.size(screenWidth: width, size: 40)),
+                padding: contentButtonsPadding,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(
-                          bottom:
-                              DynamicSize.size(screenWidth: width, size: 40)),
+                      padding: buttonIconsBottomPadding,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -144,9 +133,7 @@ class _RentPageState extends State<RentPage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(
-                          bottom:
-                              DynamicSize.size(screenWidth: width, size: 40)),
+                      padding: buttonIconsBottomPadding,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -170,8 +157,8 @@ class _RentPageState extends State<RentPage> {
     return Column(
       children: [
         Container(
-          width: DynamicSize.size(screenWidth: width, size: 110),
-          height: DynamicSize.size(screenWidth: width, size: 80),
+          width: itemBikeWidth,
+          height: itemBikeHeight,
           decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(imageItem),
@@ -180,33 +167,27 @@ class _RentPageState extends State<RentPage> {
               borderRadius: BorderRadius.circular(12)),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 10, bottom: 20),
+          padding: buttonsText,
           child: Text(
             'Lorem Ipsum',
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              color: Color(0xff575757),
-            ),
+            style: buttonsTextStyle,
           ),
         ),
         CupertinoButton(
-          padding: EdgeInsets.zero,
+          padding: zero,
           onPressed: () {
             Navigator.pushNamed(context, Routes.payment);
           },
           child: Container(
-            width: DynamicSize.size(screenWidth: width, size: 110),
-            height: DynamicSize.size(screenWidth: width, size: 30),
+            width: itemBikeWidth,
+            height: rentButtonsHeight,
             decoration: BoxDecoration(
                 color: Color(0xffA71E13),
                 borderRadius: BorderRadius.circular(8)),
             child: Center(
                 child: Text(
               'Վարձակալել',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  fontSize: DynamicSize.size(screenWidth: width, size: 14)),
+              style: rentButtonsTextStyle,
             )),
           ),
         )

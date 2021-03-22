@@ -1,5 +1,6 @@
 import 'package:bike_life/base/dynamic_size.dart';
 import 'package:bike_life/base/images.dart';
+import 'package:bike_life/ui/payment/payment_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rounded_date_picker/rounded_picker.dart';
@@ -57,21 +58,19 @@ class _PaymentPageState extends State<PaymentPage> {
 
   Widget appBar() {
     return Padding(
-      padding: EdgeInsets.only(
-        bottom: DynamicSize.size(screenWidth: width, size: 70),
-      ),
+      padding: appBarPadding,
       child: Container(
         width: width,
-        height: DynamicSize.size(screenWidth: width, size: 60),
+        height: appBarHeight,
         color: Color(0xffE9EAEC),
         child: Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: DynamicSize.size(screenWidth: width, size: 50),
+                width: payCardAndBackBtnHeight,
                 child: CupertinoButton(
-                  padding: EdgeInsets.zero,
+                  padding: zero,
                   onPressed: () {
                     FocusScope.of(context).requestFocus(FocusNode());
                     Navigator.of(context).pop();
@@ -79,6 +78,7 @@ class _PaymentPageState extends State<PaymentPage> {
                   child: Icon(
                     Icons.arrow_back_rounded,
                     color: Colors.black,
+                    size: DynamicSize.size(screenWidth: width, size: 18),
                   ),
                 ),
               ),
@@ -87,23 +87,19 @@ class _PaymentPageState extends State<PaymentPage> {
                 children: [
                   Image(
                     image: AssetImage(AppImages.inecoBank),
-                    width: 110,
+                    width: DynamicSize.size(screenWidth: width, size: 110),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
-                        left: DynamicSize.size(screenWidth: width, size: 130)),
+                    padding: sessionEndPadding,
                     child: Text(
                       'Սեսիան կավարտվի 19։50',
-                      style: TextStyle(
-                          fontSize:
-                              DynamicSize.size(screenWidth: width, size: 8),
-                          color: Colors.grey),
+                      style: sessionEndStyle,
                     ),
                   )
                 ],
               ),
               Container(
-                width: DynamicSize.size(screenWidth: width, size: 50),
+                width: payCardAndBackBtnHeight,
               ),
             ],
           ),
@@ -114,8 +110,7 @@ class _PaymentPageState extends State<PaymentPage> {
 
   Widget bodyContent() {
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: DynamicSize.size(screenWidth: width, size: 40)),
+      padding: bodyContentPadding,
       child: Column(
         children: [
           cardNumber(),
@@ -136,14 +131,11 @@ class _PaymentPageState extends State<PaymentPage> {
           alignment: Alignment.topLeft,
           child: Text(
             'Ձեր քարտի համարը',
-            style: TextStyle(
-                color: Color(0xffA4A4A4),
-                fontSize: DynamicSize.size(screenWidth: width, size: 14)),
+            style: labelStyle,
           ),
         ),
         TextFormField(
-          style: TextStyle(
-              fontSize: DynamicSize.size(screenWidth: width, size: 18)),
+          style: textFieldStyle,
           keyboardType: TextInputType.number,
           maxLength: 16,
           decoration: InputDecoration(
@@ -155,7 +147,7 @@ class _PaymentPageState extends State<PaymentPage> {
               borderSide: BorderSide(color: Color(0xffA4A4A4)),
             ),
             hintText: '1234 1234 1234 1234',
-            hintStyle: TextStyle(color: Color(0xffD8D8D8)),
+            hintStyle: hintStyle,
           ),
         ),
       ],
@@ -166,21 +158,17 @@ class _PaymentPageState extends State<PaymentPage> {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(
-              top: DynamicSize.size(screenWidth: width, size: 20)),
+          padding: textFieldPadding,
           child: Align(
             alignment: Alignment.topLeft,
             child: Text(
               'Ձեր Անունը',
-              style: TextStyle(
-                  color: Color(0xffA4A4A4),
-                  fontSize: DynamicSize.size(screenWidth: width, size: 14)),
+              style: labelStyle,
             ),
           ),
         ),
         TextFormField(
-          style: TextStyle(
-              fontSize: DynamicSize.size(screenWidth: width, size: 18)),
+          style: textFieldStyle,
           decoration: InputDecoration(
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Color(0xffD8D8D8)),
@@ -189,7 +177,7 @@ class _PaymentPageState extends State<PaymentPage> {
               borderSide: BorderSide(color: Color(0xffA4A4A4)),
             ),
             hintText: 'Firstname Lastname',
-            hintStyle: TextStyle(color: Color(0xffD8D8D8)),
+            hintStyle: hintStyle,
           ),
         ),
       ],
@@ -200,16 +188,12 @@ class _PaymentPageState extends State<PaymentPage> {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(
-              top: DynamicSize.size(screenWidth: width, size: 20)),
+          padding: textFieldPadding,
           child: Align(
             alignment: Alignment.topLeft,
             child: Text(
               'Քարտի Գործողության վերջնաժամկետը',
-              style: TextStyle(
-                color: Color(0xffA4A4A4),
-                fontSize: DynamicSize.size(screenWidth: width, size: 14),
-              ),
+              style: labelStyle,
             ),
           ),
         ),
@@ -244,9 +228,7 @@ class _PaymentPageState extends State<PaymentPage> {
                   newDateTime == null
                       ? '${DateTime.now().day} - ${mount[DateTime.now().month - 1]} - ${DateTime.now().year}'
                       : '${newDateTime.day} - ${mount[newDateTime.month - 1]} - ${newDateTime.year}',
-                  style: TextStyle(
-                      fontSize: DynamicSize.size(screenWidth: width, size: 18),
-                      color: Color(0xff808080)),
+                  style: datePickerTextStyle,
                 ),
                 Icon(Icons.arrow_drop_down_sharp)
               ],
@@ -261,23 +243,19 @@ class _PaymentPageState extends State<PaymentPage> {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(
-              top: DynamicSize.size(screenWidth: width, size: 20)),
+          padding: textFieldPadding,
           child: Align(
             alignment: Alignment.topLeft,
             child: Text(
               'CVC2/CVV2 կոդ',
-              style: TextStyle(
-                  color: Color(0xffA4A4A4),
-                  fontSize: DynamicSize.size(screenWidth: width, size: 14)),
+              style: labelStyle
             ),
           ),
         ),
         TextFormField(
           maxLength: 3,
           keyboardType: TextInputType.number,
-          style: TextStyle(
-              fontSize: DynamicSize.size(screenWidth: width, size: 18)),
+          style: textFieldStyle,
           decoration: InputDecoration(
             counterText: "",
             enabledBorder: UnderlineInputBorder(
@@ -287,7 +265,7 @@ class _PaymentPageState extends State<PaymentPage> {
               borderSide: BorderSide(color: Color(0xffA4A4A4)),
             ),
             hintText: '123',
-            hintStyle: TextStyle(color: Color(0xffD8D8D8)),
+            hintStyle: hintStyle,
           ),
         ),
       ],
@@ -297,26 +275,20 @@ class _PaymentPageState extends State<PaymentPage> {
   Widget price() {
     return Padding(
       padding:
-          EdgeInsets.only(top: DynamicSize.size(screenWidth: width, size: 20)),
+          textFieldPadding,
       child: Align(
         alignment: Alignment.topLeft,
         child: Row(
           children: [
             Text(
               'Գումար',
-              style: TextStyle(
-                  color: Color(0xffA4A4A4),
-                  fontSize: DynamicSize.size(screenWidth: width, size: 14)),
+              style: labelStyle
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  left: DynamicSize.size(screenWidth: width, size: 10)),
+              padding: priceTextPadding,
               child: Text(
                 '10.24 USD',
-                style: TextStyle(
-                    color: Color(0xff0D6435),
-                    fontSize: DynamicSize.size(screenWidth: width, size: 16),
-                    fontWeight: FontWeight.w500),
+                style: priceStyle,
               ),
             )
           ],
@@ -329,50 +301,44 @@ class _PaymentPageState extends State<PaymentPage> {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.only(
-              top: DynamicSize.size(screenWidth: width, size: 70),
-              bottom: DynamicSize.size(screenWidth: width, size: 15)),
+          padding: payButtonPadding,
           child: CupertinoButton(
-            padding: EdgeInsets.zero,
+            padding: zero,
             onPressed: () {},
             child: Container(
               width: width,
-              height: DynamicSize.size(screenWidth: width, size: 50),
+              height: payCardAndBackBtnHeight,
               color: Color(0xff0D6435),
               child: Center(
                   child: Text(
                 'Վճարել',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: DynamicSize.size(screenWidth: width, size: 18)),
+                style: paymentStyleText,
               )),
             ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(
-              bottom: DynamicSize.size(screenWidth: width, size: 10)),
+          padding: paymentCardsContentPadding,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image(
                 image: AssetImage(AppImages.visa),
-                width: DynamicSize.size(screenWidth: width, size: 70),
-                height: DynamicSize.size(screenWidth: width, size: 50),
+                width: paymentCardWidth,
+                height: payCardAndBackBtnHeight,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: DynamicSize.size(screenWidth: width, size: 10)),
+                padding: paymentCardsPadding,
                 child: Image(
                   image: AssetImage(AppImages.mastercard),
-                  width: DynamicSize.size(screenWidth: width, size: 70),
-                  height: DynamicSize.size(screenWidth: width, size: 50),
+                  width: paymentCardWidth,
+                  height: payCardAndBackBtnHeight,
                 ),
               ),
               Image(
                 image: AssetImage(AppImages.arca),
-                width: DynamicSize.size(screenWidth: width, size: 70),
-                height: DynamicSize.size(screenWidth: width, size: 50),
+                width: paymentCardWidth,
+                height: payCardAndBackBtnHeight,
               )
             ],
           ),

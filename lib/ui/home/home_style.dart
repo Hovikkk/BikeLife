@@ -2,7 +2,7 @@ import 'package:bike_life/base/dynamic_size.dart';
 import 'package:flutter/material.dart';
 
 final double buttonPreferredSizeHeight =
-    DynamicSize.size(screenWidth: width, size: 50);
+    DynamicSize.size(screenWidth: width, size: 40);
 final double loremSize = DynamicSize.size(screenWidth: width, size: 18);
 final double buttonTextSize = DynamicSize.size(screenWidth: width, size: 16);
 final double horizonalLoremPadding =
