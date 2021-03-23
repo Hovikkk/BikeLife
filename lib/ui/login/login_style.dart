@@ -21,6 +21,10 @@ BoxDecoration textFieldPassword = BoxDecoration(
   color: Colors.white,
 );
 
+TextStyle passwordStyle = TextStyle(
+  fontSize: DynamicSize.size(screenWidth: width, size: 17),
+);
+
 TextStyle hintStyle = TextStyle(
   fontSize: buttonSize,
   color: Color(0xffD4D4D4),

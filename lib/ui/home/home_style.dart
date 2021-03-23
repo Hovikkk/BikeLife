@@ -10,6 +10,8 @@ final double horizonalLoremPadding =
 final double loremTextSize = DynamicSize.size(screenWidth: width, size: 14);
 final double bikeIconWidth = DynamicSize.size(screenWidth: width, size: 70);
 final double dividerHeight = DynamicSize.size(screenWidth: width, size: 4);
+final double logoWidth = DynamicSize.size(screenWidth: width, size: 100);
+final double actionsIconSize = DynamicSize.size(screenWidth: width, size: 20);
 
 EdgeInsets zero = EdgeInsets.zero;
 EdgeInsets paddingBottonBottom = EdgeInsets.only(
@@ -21,6 +23,12 @@ EdgeInsets loremBlockPadding = EdgeInsets.only(
   top: buttonPreferredSizeHeight,
 );
 EdgeInsets loremTextPadding = EdgeInsets.only(top: 5);
+EdgeInsets appBarTitlePadding = EdgeInsets.only(
+  left: DynamicSize.size(screenWidth: width, size: 10),
+);
+EdgeInsets appBarActionsPadding = EdgeInsets.only(
+  right: DynamicSize.size(screenWidth: width, size: 10),
+);
 
 TextStyle buttonText = TextStyle(
   color: Colors.white,

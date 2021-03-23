@@ -69,9 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                         obscureText: true,
                         enableSuggestions: false,
                         autocorrect: false,
-                        style: TextStyle(
-                            fontSize:
-                                DynamicSize.size(screenWidth: width, size: 17)),
+                        style: passwordStyle,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Գաղտնաբառ',

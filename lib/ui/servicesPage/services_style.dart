@@ -9,6 +9,9 @@ final double redIconTextSize = DynamicSize.size(screenWidth: width, size: 10);
 final double containerButtonSize = DynamicSize.size(screenWidth: width, size: 120);
 final double stepTop = DynamicSize.size(screenWidth: width, size: 10);
 final double stepRight = DynamicSize.size(screenWidth: width, size: 7);
+final double servicesTextWidth = DynamicSize.size(screenWidth: width, size: 150);
+final double driveCompetentlyTextWidth = DynamicSize.size(screenWidth: width, size: 200);
+final double backBtnSize = DynamicSize.size(screenWidth: width, size: 18);
 
 EdgeInsets zero = EdgeInsets.zero;
 

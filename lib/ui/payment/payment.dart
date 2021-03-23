@@ -78,7 +78,7 @@ class _PaymentPageState extends State<PaymentPage> {
                   child: Icon(
                     Icons.arrow_back_rounded,
                     color: Colors.black,
-                    size: DynamicSize.size(screenWidth: width, size: 18),
+                    size: backBtnSize,
                   ),
                 ),
               ),
@@ -87,7 +87,7 @@ class _PaymentPageState extends State<PaymentPage> {
                 children: [
                   Image(
                     image: AssetImage(AppImages.inecoBank),
-                    width: DynamicSize.size(screenWidth: width, size: 110),
+                    width: inecoLogoSize,
                   ),
                   Padding(
                     padding: sessionEndPadding,

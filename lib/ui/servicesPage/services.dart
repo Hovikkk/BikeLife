@@ -1,4 +1,3 @@
-import 'package:bike_life/base/dynamic_size.dart';
 import 'package:bike_life/base/images.dart';
 import 'package:bike_life/base/routes.dart';
 import 'package:bike_life/ui/servicesPage/services_style.dart';
@@ -37,7 +36,7 @@ class _ServicesPageState extends State<ServicesPage> {
         child: Icon(
           Icons.arrow_back_rounded,
           color: Colors.black,
-          size: DynamicSize.size(screenWidth: width, size: 18),
+          size: backBtnSize,
         ),
       ),
       title: Container(
@@ -101,7 +100,7 @@ class _ServicesPageState extends State<ServicesPage> {
 
   Widget servicesText() {
     return Container(
-      width: DynamicSize.size(screenWidth: width, size: 150),
+      width: servicesTextWidth,
       child: Column(
         children: [
           Padding(
@@ -303,7 +302,7 @@ class _ServicesPageState extends State<ServicesPage> {
 
   Widget driveCompetentlyText() {
     return Container(
-      width: DynamicSize.size(screenWidth: width, size: 200),
+      width: driveCompetentlyTextWidth,
       child: Column(
         children: [
           Padding(

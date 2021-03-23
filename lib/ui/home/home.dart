@@ -109,25 +109,21 @@ class _HomePageState extends State<HomePage> {
       centerTitle: false,
       backgroundColor: Color(0xffECECEC),
       title: Padding(
-        padding: EdgeInsets.only(
-          left: DynamicSize.size(screenWidth: width, size: 10),
-        ),
+        padding: appBarTitlePadding,
         child: Image(
           image: AssetImage(AppImages.bikeLifeLogo),
-          width: DynamicSize.size(screenWidth: width, size: 100),
+          width: logoWidth,
         ),
       ),
       actions: [
         Padding(
-          padding: EdgeInsets.only(
-            right: DynamicSize.size(screenWidth: width, size: 10),
-          ),
+          padding: appBarActionsPadding,
           child: Row(
             children: [
               Image(
                 image: AssetImage(AppImages.personIcon),
-                width: DynamicSize.size(screenWidth: width, size: 20),
-                height: DynamicSize.size(screenWidth: width, size: 20),
+                width: actionsIconSize,
+                height: actionsIconSize,
               ),
               CupertinoButton(
                 padding: zero,
@@ -137,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                 child: Icon(
                   Icons.more_vert,
                   color: Color(0xff606060),
-                  size: DynamicSize.size(screenWidth: width, size: 20),
+                  size: actionsIconSize,
                 ),
               )
             ],

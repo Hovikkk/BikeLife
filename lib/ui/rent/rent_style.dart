@@ -9,6 +9,7 @@ final double redIconTextSize = DynamicSize.size(screenWidth: width, size: 10);
 final double itemBikeWidth = DynamicSize.size(screenWidth: width, size: 110);
 final double itemBikeHeight = DynamicSize.size(screenWidth: width, size: 80);
 final double rentButtonsHeight = DynamicSize.size(screenWidth: width, size: 30);
+final double rentTextWidth = DynamicSize.size(screenWidth: width, size: 158);
 
 EdgeInsets zero = EdgeInsets.zero;
 

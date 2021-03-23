@@ -2,9 +2,10 @@ import 'package:bike_life/base/dynamic_size.dart';
 import 'package:flutter/material.dart';
 
 final double appBarHeight = DynamicSize.size(screenWidth: width, size: 60);
-// final double backBtnWidth = DynamicSize.size(screenWidth: width, size: 50);
 final double paymentCardWidth = DynamicSize.size(screenWidth: width, size: 70);
 final double payCardAndBackBtnHeight = DynamicSize.size(screenWidth: width, size: 50);
+final double backBtnSize = DynamicSize.size(screenWidth: width, size: 18);
+final double inecoLogoSize = DynamicSize.size(screenWidth: width, size: 110);
 
 EdgeInsets zero = EdgeInsets.zero;
 

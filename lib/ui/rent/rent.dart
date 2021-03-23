@@ -99,7 +99,7 @@ class _RentPageState extends State<RentPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: DynamicSize.size(screenWidth: width, size: 158),
+              width: rentTextWidth,
               child: Column(
                 children: [
                   Padding(
