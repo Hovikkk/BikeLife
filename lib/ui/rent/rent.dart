@@ -37,6 +37,7 @@ class _RentPageState extends State<RentPage> {
         child: Icon(
           Icons.arrow_back_rounded,
           color: Colors.black,
+          size: backBtnSize,
         ),
       ),
       title: Container(

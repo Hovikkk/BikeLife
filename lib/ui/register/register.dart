@@ -53,8 +53,10 @@ class _RegisterPageState extends State<RegisterPage> {
                           Navigator.of(context).pop();
                         },
                         child: Icon(
+                          
                           Icons.clear,
                           color: Colors.black,
+                          size: backBtnSize,
                         )),
                     Image(
                       image: AssetImage(AppImages.bikeLifeLogo),
@@ -83,6 +85,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             child: TextFormField(
                               controller: firstName,
+                              style: inputStyle,
                               decoration: InputDecoration(
                                 labelText: 'Անուն',
                               ),
@@ -95,6 +98,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             child: TextFormField(
                               controller: surName,
+                              style: inputStyle,
                               decoration: InputDecoration(
                                 labelText: 'Ազգանուն',
                               ),
@@ -107,6 +111,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             child: TextFormField(
                               controller: email,
+                              style: inputStyle,
                               decoration: InputDecoration(
                                 labelText: 'Էլ հասցե',
                               ),
@@ -122,6 +127,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               enableSuggestions: false,
                               autocorrect: false,
                               controller: password,
+                              style: inputStyle,
                               decoration: InputDecoration(
                                 labelText: 'Գաղտնաբառ',
                               ),
